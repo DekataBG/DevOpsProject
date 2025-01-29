@@ -1,0 +1,16 @@
+# Ignore Python cache files
+__pycache__/
+
+# Ignore virtual environments
+venv/
+.env/
+.venv/
+
+# Ignore Git-related files
+.git/
+.gitignore
+
+# Ignore Docker-related files
+.dockerignore
+Dockerfile
+docker-compose.yml

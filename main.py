@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import uvicorn
 import socket
 
 app = FastAPI()
@@ -10,3 +11,6 @@ def hello_world():
 @app.get("/hostname", response_model=str)
 def hello_world():
     return socket.gethostname()
+
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=8000)
