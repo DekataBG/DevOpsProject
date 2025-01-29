@@ -7,14 +7,14 @@ on:
 
 jobs:
   build-and-push:
-    name: Build Docker image and push to GitHub Docker Registry
+    name: Build and Push Docker Image
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Log in to GitHub Docker Registry
+      - name: Log in to GitHub Container Registry
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
@@ -23,8 +23,10 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t ghcr.io/devopsproject/my-demo-app:latest .
+          REPO=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          docker build -t ghcr.io/$REPO/project:latest .
 
       - name: Push Docker Image
         run: |
-          docker push ghcr.io/devopsproject/my-demo-app:latest
+          REPO=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          docker push ghcr.io/$REPO/project:latest
