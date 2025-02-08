@@ -6,3 +6,4 @@
 
 ### To access the website created with terraform:
 `http://ec2-18-192-38-105.eu-central-1.compute.amazonaws.com/`
+To test the pulled image with Ansible: `http://ec2-54-93-229-251.eu-central-1.compute.amazonaws.com/hostname`
